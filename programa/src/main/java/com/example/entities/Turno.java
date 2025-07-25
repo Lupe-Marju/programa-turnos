@@ -1,42 +1,69 @@
 package com.example.entities;
 
 import jakarta.persistence.*;
-import java.time.LocalDate;
-
+import java.time.
 @Entity
 @Table(name = "turnos")
+
 public class Turno {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private int numeroTurno;
-    private String descripcion;
+    @Column(nullable = false)
+    private int identificadorProgresivo;
+
+    @Column(nullable = false)
     private LocalDate fecha;
 
     @Enumerated(EnumType.STRING)
-    private com.example.enums.EstadoTurno estado;
+    private EstadoTurno estadoTurno;
+
 
     @ManyToOne
-    @JoinColumn(name = "ciudadano_id")
+    @JoinColumn(name = "ciudadano_id",nullable = false)
     private Ciudadano ciudadano;
 
+    public Turno() {
+    }
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public Turno(int identificadorProgresivo, LocalDate fecha, EstadoTurno estadoTurno, Ciudadano ciudadano) {
+        this.identificadorProgresivo = identificadorProgresivo;
+        this.fecha = fecha;
+        this.estadoTurno = estadoTurno;
+        this.ciudadano = ciudadano;
+    }
 
-    public int getNumeroTurno() { return numeroTurno; }
-    public void setNumeroTurno(int numeroTurno) { this.numeroTurno = numeroTurno; }
+    public Long getId() {
+        return id;
+    }
 
-    public String getDescripcion() { return descripcion; }
-    public void setDescripcion(String descripcion) { this.descripcion = descripcion; }
+    public int getIdentificadorProgresivo() {
+        return identificadorProgresivo;
+    }
 
-    public LocalDate getFecha() { return fecha; }
-    public void setFecha(LocalDate fecha) { this.fecha = fecha; }
+    public LocalDate getFecha() {
+        return fecha;
+    }
 
-    public com.example.enums.EstadoTurno getEstado() { return estado; }
-    public void setEstado(com.example.enums.EstadoTurno estado) { this.estado = estado; }
+    public EstadoTurno getEstadoTurno() {
+        return estadoTurno;
+    }
 
-    public Ciudadano getCiudadano() { return ciudadano; }
-    public void setCiudadano(Ciudadano ciudadano) { this.ciudadano = ciudadano; }
+    public Ciudadano getCiudadano() {
+        return ciudadano;
+    }
+
+    public void setCiudadano(Ciudadano ciudadano) {
+        this.ciudadano = ciudadano;
+    }
+
+    public void setEstadoTurno(EstadoTurno estadoTurno) {
+        this.estadoTurno = estadoTurno;
+    }
+
+    public void setFecha(LocalDate fecha) {
+        this.fecha = fecha;
+    }
 }
+
