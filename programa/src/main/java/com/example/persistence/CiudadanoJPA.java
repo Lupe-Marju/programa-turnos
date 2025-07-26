@@ -15,7 +15,7 @@ public class CiudadanoJPA {
     }
 
     // Obtener listas por nombres de ciudadanos
-    public List<Ciudadano> listarCiudadano() {
+    public List<Ciudadano> listarCiudadanos() {
         try (EntityManager em = ConfigJPA.getEntityManager()) {
             List<Ciudadano> ciudadanos = em.createQuery("SELECT t FROM Ciudadano t ORDER BY t.nombre", Ciudadano.class).getResultList();
             return ciudadanos;
