@@ -1,10 +1,11 @@
 package com.example.entities;
 
+import com.example.enums.EstadoTurno;
 import jakarta.persistence.*;
-import java.time.
+import java.time.LocalDate;
+
 @Entity
 @Table(name = "turnos")
-
 public class Turno {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +19,6 @@ public class Turno {
 
     @Enumerated(EnumType.STRING)
     private EstadoTurno estadoTurno;
-
 
     @ManyToOne
     @JoinColumn(name = "ciudadano_id",nullable = false)
