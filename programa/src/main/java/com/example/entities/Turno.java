@@ -24,6 +24,11 @@ public class Turno {
     @JoinColumn(name = "ciudadano_id",nullable = false)
     private Ciudadano ciudadano;
 
+    /*@PrePersist
+    public void asignarIdentificador() {
+        this.identificadorProgresivo = contador++;
+    }*/
+
     public Turno() {
     }
 
