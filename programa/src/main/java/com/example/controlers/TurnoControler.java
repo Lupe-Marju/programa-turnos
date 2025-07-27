@@ -38,7 +38,16 @@ public class TurnoControler {
         Turno turno = new Turno();
 
         //Aqui logica del metodo de crear el contador;
-        turno.setIdentificadorProgresivo(contador++);
+        /*turno.setIdentificadorProgresivo(contador++);
+        turno.setEstadoTurno(estadoTurno);
+        turno.setFecha(fecha);
+        turno.setCiudadano(ciudadanoJPA.buscarPorId(ciudadanoId));
+        turnoJPA.agregarTurno(turno);*/
+
+        // Obtener el último identificador progresivo
+        int maxId = turnoJPA.obtenerMaxIdentificadorProgresivo();
+        turno.setIdentificadorProgresivo(maxId + 1);
+
         turno.setEstadoTurno(estadoTurno);
         turno.setFecha(fecha);
         turno.setCiudadano(ciudadanoJPA.buscarPorId(ciudadanoId));

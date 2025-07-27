@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet("/agregarciudadano")
-public class AgregarCuidadanoServlet extends HttpServlet {
+public class AgregarCiudadanoServlet extends HttpServlet {
     CiudadanoControler ciudadanoControler = new CiudadanoControler();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String nombre = request.getParameter("nombre");

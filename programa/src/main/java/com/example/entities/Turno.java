@@ -1,11 +1,11 @@
 package com.example.entities;
 
 import com.example.enums.EstadoTurno;
-import jakarta.persistence.*;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "turnos")
+@Table(name = "estadoTurno")
 public class Turno {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
