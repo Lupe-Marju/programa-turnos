@@ -1,5 +1,5 @@
 package com.example.persistence;
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 public class ConfigJPA {
     private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("unidadDePersistencia");
