@@ -4,7 +4,6 @@ import com.example.controlers.CiudadanoControler;
 import com.example.controlers.TurnoControler;
 import com.example.entities.Ciudadano;
 import com.example.enums.EstadoTurno;
-import com.example.persistence.CiudadanoJPA;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

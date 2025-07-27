@@ -2,7 +2,6 @@ package com.example.servlets;
 
 import com.example.controlers.CiudadanoControler;
 import com.example.entities.Ciudadano;
-import com.example.persistence.CiudadanoJPA;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
