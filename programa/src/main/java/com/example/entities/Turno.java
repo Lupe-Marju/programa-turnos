@@ -24,11 +24,6 @@ public class Turno {
     @JoinColumn(name = "ciudadano_id",nullable = false)
     private Ciudadano ciudadano;
 
-    /*@PrePersist
-    public void asignarIdentificador() {
-        this.identificadorProgresivo = contador++;
-    }*/
-
     public Turno() {
     }
 
@@ -37,6 +32,10 @@ public class Turno {
         this.fecha = fecha;
         this.estadoTurno = estadoTurno;
         this.ciudadano = ciudadano;
+    }
+
+    public void setIdentificadorProgresivo(int identificadorProgresivo) {
+        this.identificadorProgresivo = identificadorProgresivo;
     }
 
     public Long getId() {
