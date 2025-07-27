@@ -19,16 +19,27 @@ public class AgregarTurnoServlet extends HttpServlet {
 
         protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             TurnoControler turnoControler = new TurnoControler();
-
-            EstadoTurno estadoTurno = EstadoTurno.valueOf(request.getParameter("estado"));
+            EstadoTurno estadoTurno;
+            try {
+                estadoTurno = EstadoTurno.valueOf(request.getParameter("estado"));
+            } catch (IllegalArgumentException e) {
+                response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Estado invalido");
+                return;
+            }
             LocalDate fecha = LocalDate.parse(request.getParameter("fecha"));
             Long ciudadanoId = Long.parseLong(request.getParameter("ciudadanoId"));
 
+            //Validamos si parametros estan vacios o mal formateados
+            if (estadoTurno == null || fecha == null || ciudadanoId == null) {
+                response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Faltan parametros Requeridos.");
+                return;
+            }
+
             //Llamar el metodo crearturno del controlador de turnos
-            turnoControler.agregarTurno(estadoTurno,fecha,ciudadanoId);
+            turnoControler.agregarTurno(estadoTurno, fecha, ciudadanoId);
 
             // Redirigir a la lista de turnos para que se vea el nuevo turno
-            response.sendRedirect( "turnos.jsp"); //
+            response.sendRedirect("turnos.jsp"); //
         }
         protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             CiudadanoControler ciudadanoControler = new CiudadanoControler();

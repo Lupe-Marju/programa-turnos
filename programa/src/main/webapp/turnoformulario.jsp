@@ -14,9 +14,16 @@
         <option value="" disabled selected>Seleccione una opción</option>
         <!-- Iterar los nombres de los ciudadanos-->
         <% List<Ciudadano> listado = (List<Ciudadano>)request.getAttribute("listado");
+        if (listado != null) {
                 for (Ciudadano ciudadano: listado) { %>
                 <option value="<%= ciudadano.getId() %>"> <%= ciudadano.getNombre()%> <%= ciudadano.getDni()%></option>
-                <% } %>
+                <% }
+        } else {
+        %>
+        <option disabled> No hay ciudadanos disponibles</option>
+        <%
+            }
+        %>
     </select><br>
     <!-- Elegir el estado del turno-->
     <label for="estadoTurno">Estado del turno</label>

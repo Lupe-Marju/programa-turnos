@@ -4,7 +4,6 @@ import com.example.entities.Turno;
 import com.example.enums.EstadoTurno;
 import com.example.persistence.CiudadanoJPA;
 import com.example.persistence.TurnoJPA;
-import jakarta.persistence.PrePersist;
 
 import java.time.LocalDate;
 import java.util.List;
