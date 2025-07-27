@@ -1,5 +1,6 @@
 package com.example.servlets;
 
+import com.example.controlers.CiudadanoControler;
 import com.example.entities.Ciudadano;
 import com.example.persistence.CiudadanoJPA;
 
@@ -12,12 +13,12 @@ import java.io.IOException;
 
 @WebServlet("/agregarciudadano")
 public class AgregarCuidadanoServlet extends HttpServlet {
-    CiudadanoJPA ciudadanoJPA = new CiudadanoJPA();
+    CiudadanoControler ciudadanoControler = new CiudadanoControler();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String nombre = request.getParameter("nombre");
         String dni = request.getParameter("dni");
 
-        ciudadanoJPA.agregarCiudadano(new Ciudadano(nombre,dni));
+        ciudadanoControler.agregarCiudadano(new Ciudadano(nombre,dni));
 
         request.getRequestDispatcher("turnos.jsp").forward(request, response);
     }
