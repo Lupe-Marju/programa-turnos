@@ -33,4 +33,8 @@ public class Ciudadano {
 
     public String getDni() { return dni; }
     public void setDni(String dni) { this.dni = dni; }
+
+    public void setId(Long ciudadanoId) {
+        this.id = id; //para poder asignar un ID cuando se cree un Ciudadano de referencia:
+    }
 }

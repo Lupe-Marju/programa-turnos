@@ -17,6 +17,10 @@
         <option value="<%= ciudadano.getId() %>"> <%= ciudadano.getNombre()%>  <%= ciudadano.getDni()%> </option>
         <% } %>
     </select><br>
+
+
+
+
     <label for="estadoTurno">Estado del turno</label>
     <select name="estado" id="estadoTurno" required>
         <option value="" disabled selected>Seleccione una opción</option>
