@@ -2,7 +2,7 @@
 <%@ page import="java.util.List, com.example.entities.Ciudadano, java.time.LocalDate" %>
 <html>
 <head>
-<title> Formulario turnos</title>
+    <title> Formulario turnos</title>
 </head>
 <body>
 <h1> Agregar un turno</h1>
@@ -14,9 +14,9 @@
         <option value="" disabled selected>Seleccione una opción</option>
         <!-- Iterar los nombres de los ciudadanos-->
         <% List<Ciudadano> listado = (List<Ciudadano>)request.getAttribute("listado");
-        for (Ciudadano ciudadano: listado) { %>
-        <option value="<%= ciudadano.getId() %>"> <%= ciudadano.getNombre()%>  <%= ciudadano.getDni()%> </option>
-        <% } %>
+                for (Ciudadano ciudadano: listado) { %>
+                <option value="<%= ciudadano.getId() %>"> <%= ciudadano.getNombre()%> <%= ciudadano.getDni()%></option>
+                <% } %>
     </select><br>
     <!-- Elegir el estado del turno-->
     <label for="estadoTurno">Estado del turno</label>
@@ -27,7 +27,7 @@
     </select> <br>
     <!-- Elegir la fecha del turno-->
     <label for="fechaTurno"> Fecha </label>
-        <input type="date" min="<%=LocalDate.now()%>" name="fecha" id="fechaTurno" required ><br>
+    <input type="date" min="<%=LocalDate.now()%>" name="fecha" id="fechaTurno" required><br>
     <input type="submit" value="Agregar">
 </form>
 </body>

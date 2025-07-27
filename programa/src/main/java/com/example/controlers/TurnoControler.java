@@ -4,6 +4,7 @@ import com.example.entities.Turno;
 import com.example.enums.EstadoTurno;
 import com.example.persistence.CiudadanoJPA;
 import com.example.persistence.TurnoJPA;
+import jakarta.persistence.PrePersist;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -12,7 +13,8 @@ import java.util.stream.Collectors;
 public class TurnoControler {
 
     TurnoJPA turnoJPA = new TurnoJPA();
-    CiudadanoJPA ciudadanoJPA =new CiudadanoJPA();
+    CiudadanoJPA ciudadanoJPA = new CiudadanoJPA();
+    private int contador = 1;
 
     public List<Turno> listarTodos() {
         return turnoJPA.listarTurnos();
@@ -35,14 +37,13 @@ public class TurnoControler {
     public void agregarTurno(EstadoTurno estadoTurno, LocalDate fecha, Long ciudadanoId) {
         // crear un nuevo turno
         Turno turno = new Turno();
-        // Aqui logica del metodo de crear el contador;
-        // turno.setIdentificadorProgresivo( );
+
+        //Aqui logica del metodo de crear el contador;
+        turno.setIdentificadorProgresivo(contador++);
         turno.setEstadoTurno(estadoTurno);
         turno.setFecha(fecha);
         turno.setCiudadano(ciudadanoJPA.buscarPorId(ciudadanoId));
         turnoJPA.agregarTurno(turno);
     }
-
-
 }
 
