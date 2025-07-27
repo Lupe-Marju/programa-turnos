@@ -1,6 +1,5 @@
 package com.example.servlets;
 
-
 import com.example.controlers.TurnoControler;
 import com.example.entities.Turno;
 import com.example.enums.EstadoTurno;
@@ -57,7 +56,6 @@ public class BusquedaServlet extends HttpServlet {
         } catch (IllegalArgumentException | DateTimeParseException e) {
             response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Parámetros de filtro inválidos");
         }
-
     }
-
 }
+
