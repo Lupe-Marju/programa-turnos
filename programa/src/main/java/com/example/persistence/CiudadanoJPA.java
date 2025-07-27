@@ -21,5 +21,12 @@ public class CiudadanoJPA {
             return ciudadanos;
         }
     }
+
+    public Ciudadano buscarPorId(Long id){
+        try (EntityManager em = ConfigJPA.getEntityManager()) {
+            Ciudadano ciudadano = em.find(Ciudadano.class,id);
+            return ciudadano;
+        }
+    }
 }
 

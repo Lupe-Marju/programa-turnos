@@ -1,5 +1,6 @@
 package com.example.servlets;
 
+import com.example.controlers.CiudadanoControler;
 import com.example.controlers.TurnoControler;
 import com.example.entities.Ciudadano;
 import com.example.enums.EstadoTurno;
@@ -31,9 +32,9 @@ public class AgregarTurnoServlet extends HttpServlet {
             response.sendRedirect( "turnos.jsp"); //
         }
         protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            CiudadanoJPA cuidadanoJPA = new CiudadanoJPA();
+            CiudadanoControler ciudadanoControler = new CiudadanoControler();
             // Buscar cuidadanos para mostrar al usuario
-            List<Ciudadano> cuidadanos = cuidadanoJPA.listarCiudadanos();
+            List<Ciudadano> cuidadanos = ciudadanoControler.listarCiudadanos();
             request.setAttribute("listado", cuidadanos);
 
             request.getRequestDispatcher("turnoformulario.jsp").forward(request, response);
