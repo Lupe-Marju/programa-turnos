@@ -5,7 +5,7 @@
 <head>
     <title>Listado de Turnos</title>
     <style>
-        /* Tu CSS azul-celeste ya incluido aquí */
+        /*Tu CSS azul-celeste ya incluido aquí*/
         body { font-family: Arial, sans-serif; background:#f0f8ff; margin:0; padding:0; }
         header { background:#003366; color:white; padding:15px; text-align:center; }
         h1 { margin:0; }
@@ -77,8 +77,9 @@
             </c:if>
         </tbody>
     </table>
+    <a class="add-button" href="agregarturno"> Agregar turno</a>
 
-    <a class="add-button" href="agregarturno">+ Agregar Turno</a>
+    <a class="add-button" href="index.jsp"> Volver al inicio </a>
 </div>
 </body>
 </html>

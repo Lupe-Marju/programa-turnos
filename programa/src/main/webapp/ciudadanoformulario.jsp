@@ -88,7 +88,7 @@
 
         <input type="submit" value="Agregar">
     </form>
-    <a href="index.jsp">← Volver al inicio</a>
+    <a class="add-button" href="index.jsp"> Volver al inicio </a>
 </div>
 </body>
 </html>

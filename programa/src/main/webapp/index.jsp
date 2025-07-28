@@ -44,9 +44,9 @@
 <body>
     <h2>Bienvenido al Sistema de Turnos</h2>
     <div class="container">
-        <a href="agregarturno">Formulario de Turno</a>
-        <a href="ciudadanoformulario.jsp">Formulario de Ciudadano</a>
-        <a href="listarTurnos">Listado de Turnos</a>
+        <a href="ciudadanoformulario.jsp"> Agregar Ciudadano </a>
+        <a href="agregarturno"> Agregar Turno </a>
+        <a href="buscarTurnos"> Listado de Turnos </a>
     </div>
 </body>
 </html>

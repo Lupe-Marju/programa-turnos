@@ -113,7 +113,7 @@
 
         <input type="submit" value="Agregar Turno">
     </form>
-    <a href="turnos.jsp">← Volver a la lista de turnos</a>
+    <a class="add-button" href="index.jsp"> Volver al inicio </a>
 </div>
 </body>
 </html>

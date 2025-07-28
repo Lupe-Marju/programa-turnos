@@ -1,6 +1,7 @@
 package com.example.entities;
 
 import com.example.enums.EstadoTurno;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -21,7 +22,7 @@ public class Turno {
     private EstadoTurno estadoTurno;
 
     @ManyToOne
-    @JoinColumn(name = "ciudadano_id",nullable = false)
+    @JoinColumn(name = "ciudadano_id", nullable = false)
     private Ciudadano ciudadano;
 
     public Turno() {

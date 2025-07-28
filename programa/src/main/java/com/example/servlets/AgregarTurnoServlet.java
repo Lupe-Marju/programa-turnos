@@ -55,7 +55,7 @@ public class AgregarTurnoServlet extends HttpServlet {
         turnoControler.agregarTurno(estadoTurno, fecha, ciudadanoId);
 
         // Redirigir a la lista de turnos
-        response.sendRedirect("turnos.jsp");
+        response.sendRedirect("buscarTurnos");
     }
 
     @Override
