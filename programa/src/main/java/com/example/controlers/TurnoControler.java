@@ -11,9 +11,8 @@ import java.util.stream.Collectors;
 
 public class TurnoControler {
 
-    TurnoJPA turnoJPA = new TurnoJPA();
-    CiudadanoJPA ciudadanoJPA = new CiudadanoJPA();
-    private int contador = 1;
+    private TurnoJPA turnoJPA = new TurnoJPA();
+    private CiudadanoJPA ciudadanoJPA = new CiudadanoJPA();
 
     public List<Turno> listarTodos() {
         return turnoJPA.listarTurnos();
@@ -34,24 +33,17 @@ public class TurnoControler {
     }
 
     public void agregarTurno(EstadoTurno estadoTurno, LocalDate fecha, Long ciudadanoId) {
-        // crear un nuevo turno
-        Turno turno = new Turno();
-
-        //Aqui logica del metodo de crear el contador;
-        /*turno.setIdentificadorProgresivo(contador++);
-        turno.setEstadoTurno(estadoTurno);
-        turno.setFecha(fecha);
-        turno.setCiudadano(ciudadanoJPA.buscarPorId(ciudadanoId));
-        turnoJPA.agregarTurno(turno);*/
-
-        // Obtener el último identificador progresivo
+        // Obtener el último identificador progresivo guardado en BD
         int maxId = turnoJPA.obtenerMaxIdentificadorProgresivo();
-        turno.setIdentificadorProgresivo(maxId + 1);
 
+        // Crear un nuevo turno con identificador progresivo correcto (maxId + 1)
+        Turno turno = new Turno();
+        turno.setIdentificadorProgresivo(maxId + 1);
         turno.setEstadoTurno(estadoTurno);
         turno.setFecha(fecha);
         turno.setCiudadano(ciudadanoJPA.buscarPorId(ciudadanoId));
+
+        // Guardar el turno en la BD
         turnoJPA.agregarTurno(turno);
     }
 }
-
