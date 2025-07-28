@@ -16,9 +16,7 @@ public class AgregarCiudadanoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String nombre = request.getParameter("nombre");
         String dni = request.getParameter("dni");
-
         ciudadanoControler.agregarCiudadano(new Ciudadano(nombre,dni));
-
-        request.getRequestDispatcher("turnos.jsp").forward(request, response);
+        response.sendRedirect("buscarTurnos");
     }
 }
