@@ -31,10 +31,11 @@
         <label> Ciudadano:</label>
          <input type="text" name="nombre" value="<%= request.getAttribute("nombre") %>" readonly>
 
-        <label>Numero de turno</label>
+        <label>Numero de turno:</label>
         <input type="text" name="identificador" value="<%= request.getAttribute("identificador") %>" readonly>
+         <label>Descripcion:</label>
+                <input type="text" name="descripcion" value="<%= request.getAttribute("descripcion") %>" readonly>
 
-        </select>
         <input class="add-button" type="submit" value="Modificar turno">
     </form>
     <a class="add-button" href="index.jsp">Volver al inicio</a>

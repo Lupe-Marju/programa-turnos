@@ -21,6 +21,11 @@ public class Turno {
     @Enumerated(EnumType.STRING)
     private EstadoTurno estadoTurno;
 
+    @Column(nullable = false)
+    private String descripcion;
+
+
+
     @ManyToOne
     @JoinColumn(name = "ciudadano_id", nullable = false)
     private Ciudadano ciudadano;
@@ -28,11 +33,12 @@ public class Turno {
     public Turno() {
     }
 
-    public Turno(int identificadorProgresivo, LocalDate fecha, EstadoTurno estadoTurno, Ciudadano ciudadano) {
+    public Turno(int identificadorProgresivo, LocalDate fecha, EstadoTurno estadoTurno, Ciudadano ciudadano,String descripcion) {
         this.identificadorProgresivo = identificadorProgresivo;
         this.fecha = fecha;
         this.estadoTurno = estadoTurno;
         this.ciudadano = ciudadano;
+        this.descripcion = descripcion;
     }
 
     public void setIdentificadorProgresivo(int identificadorProgresivo) {
@@ -69,6 +75,13 @@ public class Turno {
 
     public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
+    }
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
     }
 }
 

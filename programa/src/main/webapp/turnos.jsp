@@ -37,6 +37,7 @@
             <th>Fecha</th>
             <th>Estado</th>
             <th>Ciudadano</th>
+            <th>Descripcion</th>
             <th>Modificar</th>
         </tr>
         </thead>
@@ -56,9 +57,10 @@
                 %>
             </td>
             <td><%= t.getCiudadano().getNombre() %></td>
+            <td><%= t.getDescripcion() %></td>
             <td>
                 <% String urlTurno = "modificarturno?id=" + t.getId(); %>
-                <a href="<%= urlTurno %>">Editar turno</a>
+                <a href="<%= urlTurno %>">Editar estado</a>
         </tr>
         <%
                 }

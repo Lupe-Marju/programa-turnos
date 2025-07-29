@@ -33,7 +33,7 @@ public class TurnoControler {
                 .collect(Collectors.toList());
     }
 
-    public void agregarTurno(EstadoTurno estadoTurno, LocalDate fecha, Long ciudadanoId) {
+    public void agregarTurno(EstadoTurno estadoTurno, LocalDate fecha, Long ciudadanoId,String descripcion) {
         // Obtener el último identificador progresivo guardado en BD
         int maxId = turnoJPA.obtenerMaxIdentificadorProgresivo();
 
@@ -43,7 +43,7 @@ public class TurnoControler {
         turno.setEstadoTurno(estadoTurno);
         turno.setFecha(fecha);
         turno.setCiudadano(ciudadanoJPA.buscarPorId(ciudadanoId));
-
+        turno.setDescripcion(descripcion);
         // Guardar el turno en la BD
         turnoJPA.agregarTurno(turno);
     }
