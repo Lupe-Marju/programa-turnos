@@ -1,5 +1,6 @@
 package com.example.controlers;
 
+import com.example.entities.Ciudadano;
 import com.example.entities.Turno;
 import com.example.enums.EstadoTurno;
 import com.example.persistence.CiudadanoJPA;
@@ -45,5 +46,13 @@ public class TurnoControler {
 
         // Guardar el turno en la BD
         turnoJPA.agregarTurno(turno);
+    }
+
+    public Turno buscarPorId(Long id) {
+        return turnoJPA.buscarPorId(id);
+    }
+
+    public void modificarTurno (Turno turno){
+        turnoJPA.modificarTurno(turno);
     }
 }

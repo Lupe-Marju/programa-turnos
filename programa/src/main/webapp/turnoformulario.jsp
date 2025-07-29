@@ -37,9 +37,8 @@
                 }
             %>
         </select>
-
+        <input class="add-button" type="submit" value="Guardar Turno">
     </form>
-    <a class="add-button" href="agregarturno">Guardar Turno</a>
     <a class="add-button" href="index.jsp">Volver al inicio</a>
 
 </div>
