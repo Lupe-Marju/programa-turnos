@@ -8,7 +8,7 @@
 </head>
 <body>
 <header>
-    <h1>Bienvenid@ al Sistema</h1>
+    <h1>Gestión de Turnos</h1>
 </header>
 <div class="container">
     <h2 class="page-title">Formulario de Ciudadano</h2>
@@ -26,7 +26,6 @@
         <button type="submit" class="add-button">Guardar</button>
     </form>
         <div class="corner-buttons">
-            <a class="add-button" href="agregarturno">Agregar Nuevo Turno</a>
             <a class="add-button" href="index.jsp">Volver al inicio</a>
         </div>
 </body>

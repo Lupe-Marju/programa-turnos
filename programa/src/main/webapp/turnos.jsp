@@ -12,7 +12,7 @@
 </head>
 <body>
 <header>
-    <h1>Bienvenid@ al Sistema</h1>
+    <h1>Gestión de Turnos</h1>
 </header>
 <div class="container">
     <h2 class="page-title">Listado de Turno</h2>
@@ -33,7 +33,7 @@
     <table>
         <thead>
         <tr>
-            <th>ID</th>
+            <th>Turno</th>
             <th>Fecha</th>
             <th>Estado</th>
             <th>Ciudadano</th>
@@ -46,7 +46,7 @@
                 for (Turno t : turnos) {
         %>
         <tr>
-            <td><%= t.getId() %></td>
+            <td><%= t.getIdentificadorProgresivo() %></td>
             <td><%= t.getFecha().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) %></td>
             <td>
                 <%

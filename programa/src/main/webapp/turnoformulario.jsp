@@ -10,7 +10,7 @@
 </head>
 <body>
 <header>
-    <h1>Bienvenid@ al Sistema</h1>
+    <h1>Gestión de Turnos</h1>
     </header>
 <div class="container">
     <h2 class="page-title">Formulario de Turno</h2>
