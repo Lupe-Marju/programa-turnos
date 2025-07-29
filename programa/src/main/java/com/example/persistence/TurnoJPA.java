@@ -1,5 +1,6 @@
 package com.example.persistence;
 
+import com.example.entities.Ciudadano;
 import com.example.entities.Turno;
 import javax.persistence.EntityManager;
 
@@ -35,6 +36,26 @@ public class TurnoJPA {
             Integer max = em.createQuery("SELECT MAX(t.identificadorProgresivo) FROM Turno t", Integer.class)
                     .getSingleResult();
             return max != null ? max : 0;
+        } finally {
+            em.close();
+        }
+    }
+
+    public Turno buscarPorId(Long id){
+        EntityManager em = ConfigJPA.getEntityManager();
+        try {
+            Turno turno = em.find(Turno.class,id);
+            return turno;
+        } finally {
+            em.close();
+        }
+    }
+    public  void modificarTurno(Turno turno) {
+        EntityManager em = ConfigJPA.getEntityManager();
+        try {
+            em.getTransaction().begin();
+            em.merge(turno);
+            em.getTransaction().commit();
         } finally {
             em.close();
         }
