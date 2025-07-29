@@ -66,7 +66,7 @@
                 <tr>
                     <td><c:out value="${turno.identificadorProgresivo}" /></td>
                     <td><c:out value="${turno.fecha}" /></td>
-                    <td><c:out value="${turno.estadoTurno}" /></td>
+                    <td><c:out value="${turno.estadoTurno.descripcion}" /></td>
                     <td><c:out value="${turno.ciudadano.nombre}" /></td>
                 </tr>
             </c:forEach>

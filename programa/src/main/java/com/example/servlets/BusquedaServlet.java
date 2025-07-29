@@ -34,7 +34,7 @@ public class BusquedaServlet extends HttpServlet {
                 turnos = turnoControler.listarTodos();
             } else if (estadoParam != null && !estadoParam.isEmpty() && (fechaParam == null || fechaParam.isEmpty())) {
                 // Filtrar solo por estado
-                EstadoTurno estado = EstadoTurno.valueOf(estadoParam);
+                EstadoTurno estado = EstadoTurno.fromDescripcion(estadoParam);
                 turnos = turnoControler.filtrarPorEstado(estado);
             } else if ((estadoParam == null || estadoParam.isEmpty()) && fechaParam != null && !fechaParam.isEmpty()) {
                 // Filtrar solo por fecha
@@ -42,7 +42,7 @@ public class BusquedaServlet extends HttpServlet {
                 turnos = turnoControler.filtrarPorFecha(fecha);
             } else {
                 // Filtrar por ambos
-                EstadoTurno estado = EstadoTurno.valueOf(estadoParam);
+                EstadoTurno estado = EstadoTurno.fromDescripcion(estadoParam);
                 LocalDate fecha = LocalDate.parse(fechaParam);
                 turnos = turnoControler.listarTodos()
                         .stream()
