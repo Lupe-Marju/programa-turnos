@@ -24,7 +24,7 @@ TurnoControler turnoControler = new TurnoControler();
         request.setAttribute("id",id);
         request.setAttribute("nombre", turnoEncontrado.getCiudadano().getNombre());;
         request.setAttribute("fecha", turnoEncontrado.getFecha());
-        //request.setAttribute("descripcion",turnoEncontrado.getDescripcion());
+        request.setAttribute("descripcion",turnoEncontrado.getDescripcion());
         request.setAttribute("identificador",turnoEncontrado.getIdentificadorProgresivo());
         request.getRequestDispatcher("modificarformulario.jsp").forward(request, response);
 

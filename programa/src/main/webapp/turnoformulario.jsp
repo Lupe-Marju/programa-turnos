@@ -37,7 +37,10 @@
                 }
             %>
         </select>
+         <label for="descripcion">Descripcion:</label>
+         <input type="text" name="descripcion" required>
         <input class="add-button" type="submit" value="Guardar Turno">
+
     </form>
     <a class="add-button" href="index.jsp">Volver al inicio</a>
 

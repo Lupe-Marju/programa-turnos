@@ -26,6 +26,7 @@ public class AgregarTurnoServlet extends HttpServlet {
         EstadoTurno estadoTurno;
         LocalDate fecha;
         Long ciudadanoId;
+        String descripcion;
 
         // Validar estado
         try {
@@ -42,7 +43,12 @@ public class AgregarTurnoServlet extends HttpServlet {
             response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Fecha inválida");
             return;
         }
-
+        try {
+            descripcion = request.getParameter("descripcion");
+        } catch ( NullPointerException e) {
+            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Descripcion invalida");
+            return;
+        }
         // Validar ciudadanoId
         try {
             ciudadanoId = Long.parseLong(request.getParameter("ciudadanoId"));
@@ -52,7 +58,7 @@ public class AgregarTurnoServlet extends HttpServlet {
         }
 
         // Crear turno
-        turnoControler.agregarTurno(estadoTurno, fecha, ciudadanoId);
+        turnoControler.agregarTurno(estadoTurno, fecha, ciudadanoId, descripcion);
 
         // Redirigir a la lista de turnos
         response.sendRedirect("buscarTurnos");
