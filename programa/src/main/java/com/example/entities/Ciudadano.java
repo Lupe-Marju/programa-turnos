@@ -1,7 +1,6 @@
 package com.example.entities;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "ciudadanos")
@@ -15,9 +14,6 @@ public class Ciudadano {
 
     @Column(nullable = false)
     private String dni;
-
-    @OneToMany(mappedBy = "ciudadano", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Turno> turnos;
 
     public Ciudadano() {
     }
@@ -35,15 +31,7 @@ public class Ciudadano {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
     public String getDni() {
         return dni;
-    }
-
-    public void setDni(String dni) {
-        this.dni = dni;
     }
 }

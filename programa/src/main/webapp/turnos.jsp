@@ -20,12 +20,15 @@
         <label for="estado">Estado:</label>
         <select name="estado" id="estado">
             <option value="">Todos</option>
-            <option value="EN_ESPERA" <%= "EN_ESPERA".equals(request.getParameter("estado")) ? "selected" : "" %>>En espera</option>
-            <option value="YA_ATENDIDO" <%= "YA_ATENDIDO".equals(request.getParameter("estado")) ? "selected" : "" %>>Ya atendido</option>
+            <option value="EN_ESPERA"
+            <%= "EN_ESPERA".equals(request.getParameter("estado")) ? "selected" : "" %>>En espera</option>
+            <option value="YA_ATENDIDO"
+            <%= "YA_ATENDIDO".equals(request.getParameter("estado")) ? "selected" : "" %>>Ya atendido</option>
         </select>
 
         <label for="fecha">Fecha:</label>
-        <input type="date" name="fecha" id="fecha" value="<%= request.getParameter("fecha") != null ? request.getParameter("fecha") : "" %>">
+        <input type="date" name="fecha" id="fecha" value="<%= request.getParameter("fecha") != null ?
+        request.getParameter("fecha") : "" %>">
 
         <button type="submit">Filtrar</button>
     </form>
@@ -43,35 +46,37 @@
         </thead>
         <tbody>
         <%
-            List<Turno> turnos = (List<Turno>) request.getAttribute("turnos");
-            if (turnos != null && !turnos.isEmpty()) {
+        List
+        <Turno> turnos = (List
+            <Turno>) request.getAttribute("turnos");
+                if (turnos != null && !turnos.isEmpty()) {
                 for (Turno t : turnos) {
-        %>
-        <tr>
-            <td><%= t.getIdentificadorProgresivo() %></td>
-            <td><%= t.getFecha().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) %></td>
-            <td>
-                <%
-                String estado = t.getEstadoTurno().name().replace("_", " ").toLowerCase();
-                out.print(Character.toUpperCase(estado.charAt(0)) + estado.substring(1));
                 %>
-            </td>
-            <td><%= t.getCiudadano().getNombre() %></td>
-            <td><%= t.getDescripcion() %></td>
-            <td>
-                <% String urlTurno = "modificarturno?id=" + t.getId(); %>
-                <a href="<%= urlTurno %>">Editar estado</a>
-        </tr>
-        <%
+                <tr>
+                    <td><%= t.getIdentificadorProgresivo() %></td>
+                    <td><%= t.getFecha().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) %></td>
+                    <td>
+                        <%
+                        String estado = t.getEstadoTurno().name().replace("_", " ").toLowerCase();
+                        out.print(Character.toUpperCase(estado.charAt(0)) + estado.substring(1));
+                        %>
+                    </td>
+                    <td><%= t.getCiudadano().getNombre() %></td>
+                    <td><%= t.getDescripcion() %></td>
+                    <td>
+                        <% String urlTurno = "modificarturno?id=" + t.getId(); %>
+                        <a href="<%= urlTurno %>">Editar estado</a>
+                </tr>
+                <%
                 }
-            } else {
-        %>
-        <tr>
-            <td colspan="5">No hay turnos disponibles</td>
-        </tr>
-        <%
-            }
-        %>
+                } else {
+                %>
+                <tr>
+                    <td colspan="5">No hay turnos disponibles</td>
+                </tr>
+                <%
+                }
+                %>
         </tbody>
     </table>
     <a class="add-button" href="agregarturno">Agregar Turno</a>

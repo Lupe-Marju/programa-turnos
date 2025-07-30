@@ -11,7 +11,7 @@
 <body>
 <header>
     <h1>Gestión de Turnos</h1>
-    </header>
+</header>
 <div class="container">
     <h2 class="page-title">Formulario de Turno</h2>
     <form action="agregarturno" method="post">
@@ -27,18 +27,20 @@
         <label for="ciudadanoId">Ciudadano:</label>
         <select name="ciudadanoId" required>
             <%
-                List<Ciudadano> listado = (List<Ciudadano>) request.getAttribute("listado");
-                if (listado != null) {
+            List
+            <Ciudadano> listado = (List
+                <Ciudadano>) request.getAttribute("listado");
+                    if (listado != null) {
                     for (Ciudadano c : listado) {
-            %>
-            <option value="<%= c.getId() %>"><%= c.getNombre() %> - <%= c.getDni() %></option>
-            <%
+                    %>
+                    <option value="<%= c.getId() %>"><%= c.getNombre() %> - <%= c.getDni() %></option>
+                    <%
                     }
-                }
-            %>
+                    }
+                    %>
         </select>
-         <label for="descripcion">Descripcion:</label>
-         <input type="text" name="descripcion" required>
+        <label for="descripcion">Descripcion:</label>
+        <input type="text" name="descripcion" required>
         <input class="add-button" type="submit" value="Guardar Turno">
 
     </form>

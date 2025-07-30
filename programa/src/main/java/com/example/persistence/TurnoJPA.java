@@ -1,6 +1,5 @@
 package com.example.persistence;
 
-import com.example.entities.Ciudadano;
 import com.example.entities.Turno;
 import javax.persistence.EntityManager;
 
