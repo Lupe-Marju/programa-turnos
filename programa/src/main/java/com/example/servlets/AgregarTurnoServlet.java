@@ -23,6 +23,9 @@ public class AgregarTurnoServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html; charset=UTF-8");
+        response.setCharacterEncoding("UTF-8");
         EstadoTurno estadoTurno;
         LocalDate fecha;
         Long ciudadanoId;
@@ -59,6 +62,9 @@ public class AgregarTurnoServlet extends HttpServlet {
 
         // Crear turno
         turnoControler.agregarTurno(estadoTurno, fecha, ciudadanoId, descripcion);
+
+        // Mensaje turno con exito
+        request.getSession().setAttribute("mensajeExito", "✅ Turno registrado exitosamente");
 
         // Redirigir a la lista de turnos
         response.sendRedirect("buscarTurnos");

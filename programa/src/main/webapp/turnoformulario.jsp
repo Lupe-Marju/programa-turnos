@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="com.example.entities.Ciudadano" %>
 <%@ page import="java.util.List" %>
 <!DOCTYPE html>

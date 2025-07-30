@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="com.example.entities.Turno" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.example.enums.EstadoTurno" %>
@@ -16,6 +16,18 @@
 </header>
 <div class="container">
     <h2 class="page-title">Listado de Turno</h2>
+
+    <%-- Mostrar mensaje de éxito si existe --%>
+    <%
+    String mensaje = (String) session.getAttribute("mensajeExito");
+    if (mensaje != null) {
+    %>
+    <div id="mensaje"><%= mensaje %></div>
+    <%
+    session.removeAttribute("mensajeExito");
+    }
+    %>
+
     <form method="get" action="buscarTurnos">
         <label for="estado">Estado:</label>
         <select name="estado" id="estado">
@@ -72,7 +84,7 @@
                 } else {
                 %>
                 <tr>
-                    <td colspan="5">No hay turnos disponibles</td>
+                    <td colspan="6">No hay turnos disponibles</td>
                 </tr>
                 <%
                 }
