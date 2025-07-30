@@ -45,7 +45,7 @@ public class AgregarTurnoServlet extends HttpServlet {
         }
         try {
             descripcion = request.getParameter("descripcion");
-        } catch ( NullPointerException e) {
+        } catch (NullPointerException e) {
             response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Descripcion invalida");
             return;
         }

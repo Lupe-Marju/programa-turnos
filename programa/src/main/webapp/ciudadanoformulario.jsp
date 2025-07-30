@@ -25,8 +25,8 @@
 
         <button type="submit" class="add-button">Guardar</button>
     </form>
-        <div class="corner-buttons">
-            <a class="add-button" href="index.jsp">Volver al inicio</a>
-        </div>
+    <div class="corner-buttons">
+        <a class="add-button" href="index.jsp">Volver al inicio</a>
+    </div>
 </body>
 </html>

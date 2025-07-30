@@ -24,8 +24,6 @@ public class Turno {
     @Column(nullable = false)
     private String descripcion;
 
-
-
     @ManyToOne
     @JoinColumn(name = "ciudadano_id", nullable = false)
     private Ciudadano ciudadano;
@@ -33,16 +31,12 @@ public class Turno {
     public Turno() {
     }
 
-    public Turno(int identificadorProgresivo, LocalDate fecha, EstadoTurno estadoTurno, Ciudadano ciudadano,String descripcion) {
+    public Turno(int identificadorProgresivo, LocalDate fecha, EstadoTurno estadoTurno, Ciudadano ciudadano, String descripcion) {
         this.identificadorProgresivo = identificadorProgresivo;
         this.fecha = fecha;
         this.estadoTurno = estadoTurno;
         this.ciudadano = ciudadano;
         this.descripcion = descripcion;
-    }
-
-    public void setIdentificadorProgresivo(int identificadorProgresivo) {
-        this.identificadorProgresivo = identificadorProgresivo;
     }
 
     public Long getId() {
@@ -65,6 +59,10 @@ public class Turno {
         return ciudadano;
     }
 
+    public String getDescripcion() {
+        return descripcion;
+    }
+
     public void setCiudadano(Ciudadano ciudadano) {
         this.ciudadano = ciudadano;
     }
@@ -76,12 +74,13 @@ public class Turno {
     public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
+
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public void setIdentificadorProgresivo(int identificadorProgresivo) {
+        this.identificadorProgresivo = identificadorProgresivo;
     }
 }
 

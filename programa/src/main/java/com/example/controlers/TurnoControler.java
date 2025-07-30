@@ -1,6 +1,5 @@
 package com.example.controlers;
 
-import com.example.entities.Ciudadano;
 import com.example.entities.Turno;
 import com.example.enums.EstadoTurno;
 import com.example.persistence.CiudadanoJPA;
@@ -19,6 +18,7 @@ public class TurnoControler {
         return turnoJPA.listarTurnos();
     }
 
+    // Filtramos por estado
     public List<Turno> filtrarPorEstado(EstadoTurno estado) {
         return turnoJPA.listarTurnos()
                 .stream()
@@ -26,6 +26,7 @@ public class TurnoControler {
                 .collect(Collectors.toList());
     }
 
+    // Filtramos por fecha
     public List<Turno> filtrarPorFecha(LocalDate fecha) {
         return turnoJPA.listarTurnos()
                 .stream()
@@ -33,17 +34,18 @@ public class TurnoControler {
                 .collect(Collectors.toList());
     }
 
-    public void agregarTurno(EstadoTurno estadoTurno, LocalDate fecha, Long ciudadanoId,String descripcion) {
+    public void agregarTurno(EstadoTurno estadoTurno, LocalDate fecha, Long ciudadanoId, String descripcion) {
         // Obtener el último identificador progresivo guardado en BD
         int maxId = turnoJPA.obtenerMaxIdentificadorProgresivo();
 
-        // Crear un nuevo turno con identificador progresivo correcto (maxId + 1)
+        // Crea un nuevo turno con identificador progresivo correcto (maxId + 1)
         Turno turno = new Turno();
         turno.setIdentificadorProgresivo(maxId + 1);
         turno.setEstadoTurno(estadoTurno);
         turno.setFecha(fecha);
         turno.setCiudadano(ciudadanoJPA.buscarPorId(ciudadanoId));
         turno.setDescripcion(descripcion);
+
         // Guardar el turno en la BD
         turnoJPA.agregarTurno(turno);
     }
@@ -52,7 +54,7 @@ public class TurnoControler {
         return turnoJPA.buscarPorId(id);
     }
 
-    public void modificarTurno (Turno turno){
+    public void modificarTurno(Turno turno) {
         turnoJPA.modificarTurno(turno);
     }
 }

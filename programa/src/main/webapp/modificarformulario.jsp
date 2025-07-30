@@ -11,7 +11,7 @@
 <body>
 <header>
     <h1>Gestión de Turnos</h1>
-    </header>
+</header>
 
 <div class="container">
     <h2 class="page-title">Modificar Turno</h2>
@@ -27,14 +27,13 @@
             <option value="YA_ATENDIDO">Ya atendido</option>
         </select>
 
-
         <label> Ciudadano:</label>
-         <input type="text" name="nombre" value="<%= request.getAttribute("nombre") %>" readonly>
+        <input type="text" name="nombre" value="<%= request.getAttribute("nombre") %>" readonly>
 
         <label>Numero de turno:</label>
         <input type="text" name="identificador" value="<%= request.getAttribute("identificador") %>" readonly>
-         <label>Descripcion:</label>
-                <input type="text" name="descripcion" value="<%= request.getAttribute("descripcion") %>" readonly>
+        <label>Descripcion:</label>
+        <input type="text" name="descripcion" value="<%= request.getAttribute("descripcion") %>" readonly>
 
         <input class="add-button" type="submit" value="Modificar turno">
     </form>

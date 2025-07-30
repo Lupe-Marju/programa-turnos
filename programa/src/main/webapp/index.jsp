@@ -10,11 +10,11 @@
 <header>
     <h1>Gestión de Turnos</h1>
 </header>
-    <div class="inicio-buttons">
-        <a class="add-button" href="ciudadanoformulario.jsp">Agregar Ciudadano</a>
-        <a class="add-button" href="agregarturno">Agregar Turno</a>
-        <a class="add-button" href="buscarTurnos">Listado  Turnos</a>
-    </div>
+<div class="inicio-buttons">
+    <a class="add-button" href="ciudadanoformulario.jsp">Agregar Ciudadano</a>
+    <a class="add-button" href="agregarturno">Agregar Turno</a>
+    <a class="add-button" href="buscarTurnos">Listado Turnos</a>
+</div>
 </div>
 </body>
 </html>

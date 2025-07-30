@@ -14,10 +14,6 @@ public class CiudadanoControler {
         ciudadanoJPA.agregarCiudadano(ciudadano);
     }
 
-    public Ciudadano buscarPorId(Long id) {
-        return ciudadanoJPA.buscarPorId(id);
-    }
-
     public List<Ciudadano> listarCiudadanos() {
         return ciudadanoJPA.listarCiudadanos();
     }
