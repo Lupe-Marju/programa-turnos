@@ -3,7 +3,6 @@ package com.example.controlers;
 import com.example.entities.Ciudadano;
 import com.example.persistence.CiudadanoJPA;
 
-
 import java.util.List;
 
 public class CiudadanoControler {
@@ -17,4 +16,9 @@ public class CiudadanoControler {
     public List<Ciudadano> listarCiudadanos() {
         return ciudadanoJPA.listarCiudadanos();
     }
+
+    public boolean dniExistente(String dni) {
+        return ciudadanoJPA.dniExistente(dni);
+    }
 }
+

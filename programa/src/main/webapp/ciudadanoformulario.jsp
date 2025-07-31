@@ -12,6 +12,9 @@
 </header>
 <div class="container">
     <h2 class="page-title">Formulario de Ciudadano</h2>
+    <% if (request.getAttribute("error") != null) { %>
+    <p id="mensajeerror"><%= request.getAttribute("error") %></p>
+    <% } %>
     <form action="agregarciudadano" method="post" class="styled-form">
         <div class="form-group">
             <label for="nombre">Nombre:</label>

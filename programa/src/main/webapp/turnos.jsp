@@ -16,8 +16,6 @@
 </header>
 <div class="container">
     <h2 class="page-title">Listado de Turno</h2>
-
-    <%-- Mostrar mensaje de éxito si existe --%>
     <%
     String mensaje = (String) session.getAttribute("mensajeExito");
     if (mensaje != null) {
@@ -27,7 +25,6 @@
     session.removeAttribute("mensajeExito");
     }
     %>
-
     <form method="get" action="buscarTurnos">
         <label for="estado">Estado:</label>
         <select name="estado" id="estado">

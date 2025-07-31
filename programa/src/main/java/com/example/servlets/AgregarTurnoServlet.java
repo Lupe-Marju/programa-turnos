@@ -27,36 +27,15 @@ public class AgregarTurnoServlet extends HttpServlet {
         response.setContentType("text/html; charset=UTF-8");
         response.setCharacterEncoding("UTF-8");
         EstadoTurno estadoTurno;
-        LocalDate fecha;
-        Long ciudadanoId;
-        String descripcion;
+        LocalDate fecha = LocalDate.parse(request.getParameter("fecha"));
+        Long ciudadanoId = Long.parseLong(request.getParameter("ciudadanoId"));
+        String descripcion = request.getParameter("descripcion");
 
         // Validar estado
         try {
             estadoTurno = EstadoTurno.valueOf(request.getParameter("estado"));
-        } catch (IllegalArgumentException | NullPointerException e) {
+        } catch (IllegalArgumentException e) {
             response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Estado inválido");
-            return;
-        }
-
-        // Validar fecha
-        try {
-            fecha = LocalDate.parse(request.getParameter("fecha"));
-        } catch (DateTimeParseException | NullPointerException e) {
-            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Fecha inválida");
-            return;
-        }
-        try {
-            descripcion = request.getParameter("descripcion");
-        } catch (NullPointerException e) {
-            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Descripcion invalida");
-            return;
-        }
-        // Validar ciudadanoId
-        try {
-            ciudadanoId = Long.parseLong(request.getParameter("ciudadanoId"));
-        } catch (NumberFormatException | NullPointerException e) {
-            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "ID de ciudadano inválido");
             return;
         }
 
@@ -71,7 +50,8 @@ public class AgregarTurnoServlet extends HttpServlet {
     }
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws
+            ServletException, IOException {
         // Listar ciudadanos para el formulario
         List<Ciudadano> ciudadanos = ciudadanoControler.listarCiudadanos();
         request.setAttribute("listado", ciudadanos);

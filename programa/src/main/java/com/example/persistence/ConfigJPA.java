@@ -2,7 +2,7 @@ package com.example.persistence;
 import javax.persistence.*;
 
 public class ConfigJPA {
-    private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("unidadDePersistencia");
+    public static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("unidadDePersistencia");
 
     public static EntityManager getEntityManager(){
         return emf.createEntityManager();
