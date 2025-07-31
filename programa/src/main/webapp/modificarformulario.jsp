@@ -35,7 +35,7 @@
         <label>Descripcion:</label>
         <input type="text" name="descripcion" value="<%= request.getAttribute("descripcion") %>" readonly>
 
-        <input class="add-button" type="submit" value="Modificar turno">
+        <input class="add-button" type="submit" value="Modificar estado">
     </form>
     <a class="add-button" href="index.jsp">Volver al inicio</a>
 
